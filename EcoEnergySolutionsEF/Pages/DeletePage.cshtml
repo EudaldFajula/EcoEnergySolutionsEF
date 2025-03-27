@@ -1,0 +1,38 @@
+﻿@page
+@model EcoEnergySolutionsEF.Pages.DeletePageModel
+@{
+    ViewData["Title"] = "Delete Page";
+}
+
+<h1>Select a Category</h1>
+
+<form method="post">
+    <label for="category">Choose a category:</label>
+    <select id="category" asp-for="SelectedCategory" onchange="showInputField()">
+        <option value="">--Select--</option>
+        <option value="Simulacions">Simulacions</option>
+        <option value="Consums d'aigua">Consums d'aigua</option>
+        <option value="Indicadors energetics">Indicadors energetics</option>
+    </select>
+
+    <div id="inputField" style="display: none; margin-top: 20px;">
+        <label for="textInput">Enter the id to delete:</label>
+        <input type="number" id="textInput" asp-for="InputNumber" />
+        <span asp-validation-for="InputNumber"></span>
+    </div>
+
+    <button type="submit" style="margin-top: 20px;">Submit</button>
+</form>
+
+<script>
+    function showInputField() {
+        const category = document.getElementById("category").value;
+        const inputField = document.getElementById("inputField");
+
+        if (category) {
+            inputField.style.display = "block";
+        } else {
+            inputField.style.display = "none";
+        }
+    }
+</script>
