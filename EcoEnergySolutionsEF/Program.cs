@@ -1,3 +1,6 @@
+using EcoEnergySolutionsEF.data;
+using Microsoft.EntityFrameworkCore;
+
 namespace EcoEnergySolutionsEF
 {
     public class Program
@@ -6,10 +9,22 @@ namespace EcoEnergySolutionsEF
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // Registra el DbContext amb la cadena de connexió
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
             // Add services to the container.
             builder.Services.AddRazorPages();
 
             var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var context = services.GetRequiredService<AppDbContext>();
+                var appInitializer = new AppDbInitializer(context);
+                appInitializer.Seed();
+            }
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
