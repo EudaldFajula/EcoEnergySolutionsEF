@@ -1,0 +1,41 @@
+﻿@page
+@model EcoEnergySolutionsEF.Pages.EditSimulationModel
+@{
+    ViewData["Title"] = "Editar Simulación";
+}
+<h2>Editar Simulación</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Simulacio.Id" />
+    <div>
+        <label for="TipusEnergia">Tipo de Energía</label>
+        <select id="TipusEnergia" asp-for="Simulacio.TipusEnergia" class="form-control">
+            <option value="">-- Selecciona un tipo de energía --</option>
+            <option value="Solar" selected = "@(Model.Simulacio?.TipusEnergia == "Solar" ? "selected" : null)">Solar</option>
+            <option value="HidroElectrica" selected = "@(Model.Simulacio?.TipusEnergia == "HidroElectrica" ? "selected" : null)">HidroElectrica</option>
+            <option value="Eolica" selected = "@(Model.Simulacio?.TipusEnergia == "Eolica" ? "selected" : null)">Eólica</option>
+        </select>
+        <span asp-validation-for="Simulacio.TipusEnergia" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="Parametre">Parámetro</label>
+        <input type="number" id="Parametre" asp-for="Simulacio.Parametre" class="form-control" />
+        <span asp-validation-for="Simulacio.Parametre" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="Rati">Ratio</label>
+        <input type="number" id="Rati" asp-for="Simulacio.Rati" class="form-control" />
+        <span asp-validation-for="Simulacio.Rati" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="Cost">Coste</label>
+        <input type="number" id="Cost" asp-for="Simulacio.Cost" class="form-control" />
+        <span asp-validation-for="Simulacio.Cost" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="Preu">Precio</label>
+        <input type="number" id="Preu" asp-for="Simulacio.Preu" class="form-control" />
+        <span asp-validation-for="Simulacio.Preu" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</form>

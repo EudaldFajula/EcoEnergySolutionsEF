@@ -1,0 +1,35 @@
+﻿@page
+@model EcoEnergySolutionsEF.Pages.EditEnergyIndicatorsModel
+@{
+    ViewData["Title"] = "Editar Indicadors Energetics";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="EnergyIndicator.Id" />
+    <div>
+        <label for="Date">Date</label>
+        <input type="text" id="Date" asp-for="EnergyIndicator.Date" class="form-control" />
+        <span asp-validation-for="EnergyIndicator.Date" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="CDEEBC_NetProduction">CDEEBC_NetProduction</label>
+        <input type="number" id="CDEEBC_NetProduction" asp-for="EnergyIndicator.CDEEBC_NetProduction" class="form-control" />
+        <span asp-validation-for="EnergyIndicator.CDEEBC_NetProduction" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="CCAC_AutoGas">CCAC_AutoGas</label>
+        <input type="number" id="CCAC_AutoGas" asp-for="EnergyIndicator.CCAC_AutoGas" class="form-control" />
+        <span asp-validation-for="EnergyIndicator.CCAC_AutoGas" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="CDEEBC_ElectricDemand">CDEEBC_ElectricDemand</label>
+        <input type="number" id="CDEEBC_ElectricDemand" asp-for="EnergyIndicator.CDEEBC_ElectricDemand" class="form-control" />
+        <span asp-validation-for="EnergyIndicator.CDEEBC_ElectricDemand" class="text-danger"></span>
+    </div>
+     <div>
+        <label for="CDEEBC_DispProd">CDEEBC_DispProd</label>
+        <input type="number" id="CDEEBC_DispProd" asp-for="EnergyIndicator.CDEEBC_DispProd" class="form-control" />
+        <span asp-validation-for="EnergyIndicator.CDEEBC_DispProd" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</form>
