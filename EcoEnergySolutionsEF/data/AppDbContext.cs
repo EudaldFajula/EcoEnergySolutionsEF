@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using EcoEnergySolutionsEF.Classes;
+using EcoEnergySolutionsEF.Classes.Simulacio;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
