@@ -1,0 +1,44 @@
+﻿@page
+@model EcoEnergySolutionsEF.Pages.EditWaterConsumptionModel
+@{
+	ViewData["Title"] = "Editar Consumicions Aigua";
+}
+<form method="post">
+    <input type="hidden" asp-for="WaterConsumption.Id" />
+    <div>
+        <label for="Year">Year</label>
+        <input type="number" id="Year" asp-for="WaterConsumption.Year" class="form-control" />
+        <span asp-validation-for="WaterConsumption.Year" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="Region">Region</label>
+        <input type="text" id="Region" asp-for="WaterConsumption.Region" class="form-control" />
+        <span asp-validation-for="WaterConsumption.Region" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="Population">Population</label>
+        <input type="number" id="Population" asp-for="WaterConsumption.Population" class="form-control" />
+        <span asp-validation-for="WaterConsumption.Population" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="DomesticConsumption">DomesticConsumption</label>
+        <input type="number" id="DomesticConsumption" asp-for="WaterConsumption.DomesticConsumption" class="form-control" />
+        <span asp-validation-for="WaterConsumption.DomesticConsumption" class="text-danger"></span>
+    </div>
+     <div>
+        <label for="EconomicActivitiesConsumption">EconomicActivitiesConsumption</label>
+        <input type="number" id="EconomicActivitiesConsumption" asp-for="WaterConsumption.EconomicActivitiesConsumption" class="form-control" />
+        <span asp-validation-for="WaterConsumption.EconomicActivitiesConsumption" class="text-danger"></span>
+    </div>
+     <div>
+        <label for="TotalConsumption">TotalConsumption</label>
+        <input type="number" id="TotalConsumption" asp-for="WaterConsumption.TotalConsumption" class="form-control" />
+        <span asp-validation-for="WaterConsumption.TotalConsumption" class="text-danger"></span>
+    </div>
+     <div>
+        <label for="DomesticConsumptionPerCapita">DomesticConsumptionPerCapita</label>
+        <input type="number" id="DomesticConsumptionPerCapita" asp-for="WaterConsumption.DomesticConsumptionPerCapita" class="form-control" />
+        <span asp-validation-for="WaterConsumption.DomesticConsumptionPerCapita" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</form>
